@@ -24,7 +24,7 @@ def main():
 
     client = OpenAI(api_key=OPENAI_API_KEY)
     response = client.responses.create(
-        model="gpt-4.1",
+        model="gpt-5-nano",
         tools=[{
             "type": "function",
             "name": "get_current_user",
@@ -37,17 +37,28 @@ def main():
     print(response, end="\n\n")
 
     print("✅ Output completo.")
-    if response.output[0].type == "function_call":
+    function_calls = [
+        c
+        for c in response.output
+        if c.type == "function_call"
+    ]
+    if function_calls:
         print(
             "OPEN AI Indica que hay que llamar a la función: ",
-            response.output[0].name
+            function_calls[0].name
         )
         user = get_current_user()
         print("🔧 Función get_current_user() retornó: ", user)
-    else:
+
+    messages = [
+        m
+        for m in response.output
+        if m.type == "message"
+    ]
+    if messages:
         print(
             "🤖 Respuesta normal (sin función): ",
-            response.output[0].content[0].text
+            messages[0].content[0].text
         )
 
 

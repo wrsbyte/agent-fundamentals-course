@@ -19,7 +19,7 @@ def main():
         "Libre de derechos de autor."
     )
     data = {
-        "model": "gpt-4.1",
+        "model": "gpt-5-nano",
         "input": prompt,
     }
 
@@ -32,7 +32,7 @@ def main():
     print("✅ Output completo.")
 
     # Obtener solo el texto de la respuesta
-    print(data['output'][0]['content'][0]['text'])
+    print(data['output'][1]['content'][0]['text'])
 
 
 if __name__ == "__main__":

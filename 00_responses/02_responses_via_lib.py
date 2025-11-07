@@ -15,7 +15,7 @@ def main():
 
     client = OpenAI(api_key=OPENAI_API_KEY)
     response = client.responses.create(
-        model="gpt-4.1",
+        model="gpt-5-nano",
         input=prompt,
     )
 
@@ -25,7 +25,13 @@ def main():
     print("✅ Output completo.")
 
     # Obtener solo el texto de la respuesta
-    print(response.output[0].content[0].text)
+    messages = [
+        m
+        for m in response.output
+        if m.type == "message"
+    ]
+    if messages:
+        print("Respuesta: ", messages[0].content[0].text)
 
 
 if __name__ == "__main__":

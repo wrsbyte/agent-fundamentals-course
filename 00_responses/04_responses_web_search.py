@@ -8,12 +8,12 @@ def main():
     OPENAI_API_KEY = os.getenv("OPENAI_API_KEY")
 
     prompt = (
-        "¿Cuál es la hora y fecha actual en Tokio, Japón? "
+        "¿Cuales son los últimos titulares del New York Times?"
     )
 
     client = OpenAI(api_key=OPENAI_API_KEY)
     response = client.responses.create(
-        model="gpt-4.1",
+        model="gpt-5-nano",
         tools=[{"type": "web_search_preview"}],
         input=prompt,
     )
@@ -21,9 +21,22 @@ def main():
     print("🔍 Respuesta de la API de OpenAI:")
     print(response, end="\n\n")
 
-    print("✅ Output completo.")
-    print("Respuesta: ", response.output[1].content[0].text)
-    print("Cita de: ", response.output[1].content[0].annotations[0].url)
+    messages = [
+        m
+        for m in response.output
+        if m.type == "message"
+    ]
+    if messages:
+        message = messages[0]
+        print("Respuesta: ", message.content[0].text)
+
+        print("✅ Output completo. output len", len(response.output))
+        print("Respuesta: ", message.content[0].text)
+        print(
+            "Número de fuentes usadas. ", len(
+                message.content[0].annotations
+            )
+        )
 
 
 if __name__ == "__main__":
