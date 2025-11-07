@@ -10,7 +10,7 @@ wheels/
 .venv
 .env
 .ruff_cache/
-data/certificates/*
-!data/certificates/.gitkeep
-data/database/*
-!data/database/.gitkeep
+
+solved/*
+!solved/.gitkeep
+
