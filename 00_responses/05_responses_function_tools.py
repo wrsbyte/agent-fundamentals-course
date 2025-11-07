@@ -15,12 +15,12 @@ def main():
 
     OPENAI_API_KEY = os.getenv("OPENAI_API_KEY")
 
-    prompt = (
-        "¿Sabe cual es la capital de Francia?"
-    )
     # prompt = (
-    #     "Obtén la información del usuario actualmente logueado."
+    #     "¿Sabe cual es la capital de Francia?"
     # )
+    prompt = (
+        "Obtén la información del usuario actualmente logueado."
+    )
 
     client = OpenAI(api_key=OPENAI_API_KEY)
     response = client.responses.create(
