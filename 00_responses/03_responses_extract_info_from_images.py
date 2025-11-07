@@ -22,7 +22,7 @@ def main():
                     {"type": "input_text", "text": prompt},
                     {
                         "type": "input_image",
-                        "image_url": "https://img.freepik.com/free-photo/panda-bear-leaning-against-tree-eating-bamboo-shoots_493961-7.jpg"
+                        "image_url": "https://img.freepik.com/free-photo/panda-bear-leaning-against-tree-eating-bamboo-shoots_493961-7.jpg"  # noqa
                     }
                 ]
             }
