@@ -3,7 +3,7 @@ import os
 
 
 def main():
-    print("🚀 Ejecutando la llamada a la librería de OPEN AI...")
+    print("🚀 Obteniendo respuesta en Stream...")
 
     OPENAI_API_KEY = os.getenv("OPENAI_API_KEY")
 
@@ -15,12 +15,12 @@ def main():
 
     client = OpenAI(api_key=OPENAI_API_KEY)
     response = client.responses.create(
-        model="gpt-5-nano",
+        model="gpt-5-mini",
         input=prompt,
         stream=True,
     )
 
-    print("🔍 Respuesta de la API de OpenAI:")
+    print("🔍 Respuesta de OpenAI:")
 
     event_count = 0
     for chunk in response:

@@ -19,14 +19,14 @@ def main():
         "Libre de derechos de autor."
     )
     data = {
-        "model": "gpt-5-nano",
+        "model": "gpt-5-mini",
         "input": prompt,
     }
 
     response = requests.post(url, headers=headers, json=data)
     data = response.json()
 
-    print("🔍 Respuesta de la API de OpenAI:")
+    print("🔍 Respuesta de OpenAI:")
     print(json.dumps(data, indent=4))
 
     print("✅ Output completo.")

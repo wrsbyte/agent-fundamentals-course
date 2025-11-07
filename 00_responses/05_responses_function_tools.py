@@ -24,7 +24,7 @@ def main():
 
     client = OpenAI(api_key=OPENAI_API_KEY)
     response = client.responses.create(
-        model="gpt-5-nano",
+        model="gpt-5-mini",
         tools=[{
             "type": "function",
             "name": "get_current_user",
@@ -33,7 +33,7 @@ def main():
         input=prompt,
     )
 
-    print("🔍 Respuesta de la API de OpenAI:")
+    print("🔍 Respuesta de OpenAI:")
     print(response, end="\n\n")
 
     print("✅ Output completo.")
