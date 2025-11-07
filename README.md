@@ -19,7 +19,7 @@ Este repositorio contiene ejemplos prácticos y progresivos que te enseñarán a
 ## 🚀 Requisitos Previos
 
 - Python 3.8 o superior
-- Ambiente virtual con openai, requests instalado
+- Ambiente virtual con librerías instaladas.
 - Una cuenta de OpenAI con créditos disponibles
 - API Key de OpenAI
 
@@ -44,7 +44,7 @@ Este repositorio contiene ejemplos prácticos y progresivos que te enseñarán a
 
 3. **Instalar dependencias**
    ```bash
-   pip install openai requests
+   pip install -r requirements.txt
    ```
 
 4. **Configurar tu API Key**
