@@ -14,6 +14,7 @@ def main():
     client = OpenAI(api_key=OPENAI_API_KEY)
     response = client.responses.create(
         model="gpt-5-mini",
+        # https://platform.openai.com/docs/guides/tools#page-top
         tools=[{"type": "web_search_preview"}],
         input=prompt,
     )
