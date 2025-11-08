@@ -15,7 +15,7 @@ def main():
 
     client = OpenAI(api_key=OPENAI_API_KEY)
     response = client.responses.create(
-        model="gpt-5-mini",
+        model="gpt-4.1-mini",
         input=prompt,
         stream=True,
     )
